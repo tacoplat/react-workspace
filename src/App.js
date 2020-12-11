@@ -104,7 +104,7 @@ checkGuess(e) {
       this.setState({
         message: "Your guess is too low!"
       });
-    } else if (guess === this.state.random) {
+    } else if (guess == this.state.random) {
       this.setState({
         message: "Epic! You guessed the right number!",
         disable: "disable",

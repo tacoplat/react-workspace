@@ -10,7 +10,7 @@ class Dice extends Component {
 		this.state = {
 			outcome: ""
 		};
-		background = "/die" + "default" + ".svg";
+		background = "/diedefault.svg";
 	}
 
 	roll() {
@@ -25,7 +25,7 @@ class Dice extends Component {
 	render() {
 		return (
 			<div>
-				<img id='dice' src={background} onMouseOver={(e) => this.roll(e)} />
+				<img id='dice' alt='dice' src={background} onMouseOver={(e) => this.roll(e)} />
 				<h3>You rolled: {this.state.outcome}</h3>
 			</div>
 		);

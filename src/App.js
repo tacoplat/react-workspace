@@ -104,7 +104,7 @@ checkGuess(e) {
       this.setState({
         message: "Your guess is too low!"
       });
-    } else if (guess == this.state.random) {
+    } else if (guess === this.state.random) {
       this.setState({
         message: "Epic! You guessed the right number!",
         disable: "disable",
@@ -116,7 +116,7 @@ checkGuess(e) {
       guess: "",
       message: "Please choose a positive integer value!"
     });
-  } else if (guess != ""){
+  } else if (guess !== ""){
     this.setState({
       message: "Make sure your guess is within the parameters!"
     });

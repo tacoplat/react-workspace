@@ -10,15 +10,15 @@ class Greeting extends Component {
 		};
 	}
 	greet() {
-		if (this.state.active == 0) {
+		if (this.state.active === 0) {
 			msg = "What's updog?";
 			this.setState({
-				active: this.state.active = 1
+				active: 1
 			});
 		} else {
 			msg = "See ya later alligator!";
 			this.setState({
-				active: this.state.active = 0
+				active: 0
 			});
 		}
 	}

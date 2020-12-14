@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class TextField extends Component {
+class TextField extends Component {
 	render() {
 	return (
 		<div>
@@ -10,3 +10,5 @@ export class TextField extends Component {
 	);
 	}
 }
+
+export default TextField;

@@ -72,12 +72,18 @@ code {
     transition: background-color 0.24s linear, width 0.32s ease-in-out;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
-.txtfld:disabled {
+#guessfld:disabled {
     background-color: #28b54d;
     opacity: 0.5;
     color: black;
     font-weight: bold;
     transition: background-color 0.48s linear, width 0.36s ease-in-out;
+}
+.txtfld:disabled {
+    background-color: lightslategray;
+    color: lightgrey;
+    font-weight: bold;
+    transition: background-color 0.48s linear, color 0.36s ease-in-out;
 }
 
 .txtfld:focus {
@@ -116,7 +122,7 @@ h3 {
     width: 22em;
 }
 #gameheader {
-    margin: 0.3em 0 0.2em;
+    margin: 0.2em 0 0.2em;
     color: rgb(43, 19, 129);
     text-decoration: underline;
 }
@@ -129,4 +135,36 @@ h3 {
     flex-basis: 100%;
     height: 0;
     margin-bottom: 1em;
+}
+#debuggame {
+    margin: 0.4em 0.4em 0 0;
+    outline: 0;
+    border: 0;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    align-items: stretch;
+    border-radius: 2em;
+    width: 1em;
+    height: 1em;
+    padding: 0;
+    float: right;
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+}
+#debuggame:hover {
+    background-color: darkred;
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+    width: 3.6em;
+}
+.dbgactive {
+    background-color: #3ce68e !important;
+}
+.dbgactive:hover {
+    background-color: #31bd74 !important;
+}
+#debuginfo {
+    margin-top: 0.6em;
+    background-color: lightslategray;
+    color: white;
+    padding: 6px;
 }

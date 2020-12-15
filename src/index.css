@@ -9,6 +9,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+    height: 140%;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -163,10 +167,16 @@ h3 {
 #debuggame:hover {
     background-color: darkred;
     transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
-    width: 3.4em;
+    width: 3.8em;
 }
 .dbgactive {
     background-color: #3ce68e !important;
+    width: 3.8em !important;
+}
+.dbgactive::before {
+    color: white;
+    content: "Debug";
+    font-size: 8pt;
 }
 .dbgactive:hover {
     background-color: #31bd74 !important;

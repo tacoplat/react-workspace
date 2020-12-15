@@ -20,7 +20,7 @@ class App extends Component {
       message: "Output",
       disabled: "",
       debug: 0,
-      randLength: "2ch",
+      randLength: "3ch",
       wins: 0
     }
   }
@@ -30,7 +30,7 @@ handleChange(e) {
     value: e.target.value
   });
 }
-resetGame() {
+resetGame(e) {
   const min = 1;
   const max = 100;
   this.setState({
@@ -40,7 +40,8 @@ resetGame() {
     message: "Output",
     guess: defaultGuess,
     disable: "",
-    guessLength: ""
+    guessLength: "",
+    randLength: "3ch"
   });
 }
 setMin(e) {

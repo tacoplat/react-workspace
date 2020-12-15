@@ -181,6 +181,8 @@ render() {
           <div id='stats'><b>Wins</b>: {this.state.wins}</div>
           {this.state.debug ? 
           <div id='debuginfo'>
+            <b>Debug Mode</b>
+            <br />
             <span class='att'>Min:</span> {this.state.minimum} <span class='att'>Max:</span> {this.state.maximum} <span class='att'>Rand:</span> {this.state.random} 
             <br />
             <span class='att'>Guess:</span> {this.state.guess}

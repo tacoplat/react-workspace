@@ -9,10 +9,11 @@ var defaultGuess = "Your Guess";
 class App extends Component {
   constructor(props) {
     super(props)
-    const min = 1;
-    const max = 100;
+    var min = 1;
+    var max = 100;
+    var randomNbr = (min + Math.random() * (max-min)).toFixed(0);
     this.state = {
-      random: (min + Math.random() * (max-min)).toFixed(0),
+      random: randomNbr,
       value: "Insert Name Here",
       maximum: max,
       minimum: min,
@@ -20,7 +21,7 @@ class App extends Component {
       message: "Output",
       disabled: "",
       debug: 0,
-      randLength: "3ch",
+      randLength: String(randomNbr).length + "ch",
       wins: 0
     }
   }
@@ -33,15 +34,16 @@ handleChange(e) {
 resetGame(e) {
   const min = 1;
   const max = 100;
+  const randomNbr = (min + Math.random() * (max-min)).toFixed(0);
   this.setState({
     minimum: Number(min),
     maximum: Number(max),
-    random: (min + Math.random() * (max-min)).toFixed(0),
+    random: randomNbr,
     message: "Output",
     guess: defaultGuess,
     disable: "",
     guessLength: "",
-    randLength: "3ch"
+    randLength: String(randomNbr).length + "ch"
   });
 }
 setMin(e) {
@@ -52,8 +54,10 @@ setMin(e) {
     message: "Output"
   });
   if (min <= max) {
+    var randomNbr = (min + Math.random() * (max-min)).toFixed(0);
     this.setState({
-      random: (min + Math.random() * (max-min)).toFixed(0),
+      random: randomNbr,
+      randLength: String(randomNbr).length + "ch",
       guess: defaultGuess
     });
   } else if (isNaN(min)) {
@@ -77,8 +81,10 @@ setMax(e) {
     message: "Output"
   });
   if (max >= min) {
+    var randomNbr = (min + Math.random() * (max-min)).toFixed(0);
     this.setState({
-      random: (min + Math.random() * (max-min)).toFixed(0),
+      random: randomNbr,
+      randLength: String(randomNbr).length + "ch",
       guess: defaultGuess
     });
   } else if (isNaN(max)) {
@@ -167,7 +173,7 @@ render() {
           <TextField labelName='2' labelContent='E-mail' />
         </div>
         <p>This is a paragraph.</p>
-        <div class='break'></div>
+  <div class='break'></div>
         <div id='game'>
           <button id='debuggame' onClick={(e)=>this.toggleDebug(e)} class={this.state.debug ? "dbgactive" : ""}></button>
           <h3 id='gameheader'>Guessing Game</h3>

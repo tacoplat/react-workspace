@@ -63,10 +63,11 @@ code {
 }
 
 .txtfld {
-    margin: 0.8em 0.5em 0.8em;
+    margin: 0.8em 0.65em 0.8em 0.5em;
     height: 1.5em;
     width: 14em;
     border-radius: 1em;
+    border: 2px solid lightslategray;
     outline: none;
     padding: 2px 8px 1px;
     transition: background-color 0.24s linear, width 0.32s ease-in-out;
@@ -74,21 +75,23 @@ code {
 }
 #guessfld:disabled {
     background-color: #28b54d;
+    border: 2px solid lightslategray;
     opacity: 0.5;
     color: black;
     font-weight: bold;
     transition: background-color 0.48s linear, width 0.36s ease-in-out;
 }
 .txtfld:disabled {
-    background-color: lightslategray;
-    color: lightgrey;
+    background-color: rgb(146, 153, 160);
+    color: #edf4ff;
     font-weight: bold;
-    transition: background-color 0.48s linear, color 0.36s ease-in-out;
+    transition: background-color 0.6s linear, color 0.36s ease-in-out;
 }
 
 .txtfld:focus {
     background-color: #edf4ff;
     transition: background-color 0.18s ease-in-out;
+    color: black;
 }
 
 label {
@@ -116,20 +119,26 @@ h3 {
     margin-top: 0.7em;
 }
 #game {
-    border: 2px dashed rgb(43, 19, 129);
-    padding: 10px;
+    padding: 16px 16px 22px;
+    background-color: #e6ffff;
+    border-radius: 1.4em;
     display: inline-block;
     width: 22em;
 }
 #gameheader {
-    margin: 0.2em 0 0.2em;
+    margin: 0 0 0.3em;
+    font-size: 20pt;
     color: rgb(43, 19, 129);
-    text-decoration: underline;
 }
-#output {
+#output, #stats {
     border: 1px solid lightgray;
+    margin-top: 0.8em;
     background-color: white;
     padding: 6px;
+}
+#stats {
+    background-color: lightgray;
+    border: 1px solid lightslategray;
 }
 .break {
     flex-basis: 100%;
@@ -145,8 +154,8 @@ h3 {
     font-weight: bold;
     align-items: stretch;
     border-radius: 2em;
-    width: 1em;
-    height: 1em;
+    width: 1.3em;
+    height: 1.3em;
     padding: 0;
     float: right;
     transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
@@ -154,7 +163,7 @@ h3 {
 #debuggame:hover {
     background-color: darkred;
     transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
-    width: 3.6em;
+    width: 3.4em;
 }
 .dbgactive {
     background-color: #3ce68e !important;
@@ -164,7 +173,22 @@ h3 {
 }
 #debuginfo {
     margin-top: 0.6em;
-    background-color: lightslategray;
+    background-color: rgb(146, 153, 160);
     color: white;
     padding: 6px;
+    border: 1px solid lightslategray;
+}
+#game label {
+    color: rgb(31, 13, 94);
+    font-weight: 500;
+}
+.att {
+    color: rgb(216, 216, 216) !important;
+    font-weight: 600;
+}
+.forcernd {
+    margin: 0;
+    background-color: rgb(128, 144, 158);
+    border: 1px solid lightslategray;
+    color: white;
 }

@@ -19,7 +19,9 @@ class App extends Component {
       guess: defaultGuess,
       message: "Output",
       disabled: "",
-      debug: 0
+      debug: 0,
+      randLength: "2ch",
+      wins: 0
     }
   }
 
@@ -91,6 +93,19 @@ setMax(e) {
     });
   }
 }
+setRand(e) {
+  var rand = e.target.value;
+  if(rand >= this.state.minimum && rand <= this.state.maximum) {
+    this.setState({
+      random: rand,
+      randLength: (String(rand).length) + "ch"
+    });
+  } else {
+    this.setState({
+      random: ""
+    });
+  }
+}
 checkGuess(e) {
   var guess = Number(e.target.value);
   this.setState({
@@ -107,9 +122,10 @@ checkGuess(e) {
       });
     } else if (guess == this.state.random) {
       this.setState({
-        message: "Epic! You guessed the right number!",
+        message: "Nice work! You guessed the right number!",
         disable: "disable",
-        guessLength: (String(guess).length) + "ch"
+        guessLength: (String(guess).length) + "ch",
+        wins: this.state.wins + 1
       });
     }
   } else if (isNaN(guess)) {
@@ -162,7 +178,17 @@ render() {
           <input name='guess' type='text' id='guessfld' class='txtfld' style={{width: this.state.guessLength}} autocomplete='off' disabled={(this.state.disable)? "disabled" : ""} value={this.state.guess} onChange={(e) => {this.checkGuess(e)}}></input>
           <button class="btn" onClick={(e) => {this.resetGame(e)}}>Reset</button>
           <div id='output'>{this.state.message}</div>
-          {this.state.debug ? <div id='debuginfo'>Min: {this.state.minimum}, Max: {this.state.maximum}, Rand: {this.state.random}, Guess: {this.state.guess}</div> : ""}
+          <div id='stats'><b>Wins</b>: {this.state.wins}</div>
+          {this.state.debug ? 
+          <div id='debuginfo'>
+            <span class='att'>Min:</span> {this.state.minimum} <span class='att'>Max:</span> {this.state.maximum} <span class='att'>Rand:</span> {this.state.random} 
+            <br />
+            <span class='att'>Guess:</span> {this.state.guess}
+            <br />
+            <label for="forcernd" class='att'>Set Rand: </label>
+            <input name='forcernd' type='text' class='txtfld forcernd' autocomplete='off' style={{width: this.state.randLength}} value={this.state.random} onChange={(e) => {this.setRand(e)}}></input>
+            </div>
+            : ""}
         </div>
       </div>
     </div>

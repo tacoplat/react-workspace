@@ -176,7 +176,7 @@ render() {
         <p>This is a paragraph.</p>
   
   <div class='break'></div>
-        <Draggable>
+        <Draggable handle="#drag">
           <div id='game'>
             <button id='debuggame' onClick={(e)=>this.toggleDebug(e)} class={this.state.debug ? "dbgactive" : ""}></button>
             <h3 id='gameheader'>Guessing Game</h3>
@@ -201,6 +201,9 @@ render() {
               <input name='forcernd' type='text' class='txtfld forcernd' autocomplete='off' style={{width: this.state.randLength}} value={this.state.random} onChange={(e) => {this.setRand(e)}}></input>
               </div>
               : ""}
+            <div id='drag'>
+
+            </div>
           </div>
         </Draggable>
       </div>

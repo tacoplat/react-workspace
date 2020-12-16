@@ -151,7 +151,7 @@ h3 {
     margin-bottom: 1em;
 }
 #debuggame {
-    margin: 1em 0.6em 0 0;
+    margin: 1em 1em 0 0;
     outline: 0;
     border: 0;
     background-color: red;
@@ -203,4 +203,23 @@ h3 {
     border: 1px solid lightslategray;
     color: white;
     transition: width 0.1s ease-in-out;
+}
+#drag {
+    background-image: url("dragicon.svg");
+    width: 1.2em;
+    height: 1.2em;
+    position: absolute;
+    top: 1em;
+    left: -1.5em;
+    z-index: 1;
+    opacity: 0.25;
+    transition: opacity 0.15s linear;
+}
+
+#drag:hover, #drag:active {
+    opacity: 1;
+    cursor: grab;
+}
+#drag:active {
+    cursor: grabbing;
 }

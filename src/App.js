@@ -3,6 +3,7 @@ import Button from './components/button';
 import Greeting from './components/greeting';
 import Dice from './components/dice';
 import TextField from './components/textfield';
+import Draggable from 'react-draggable';
 
 var defaultGuess = "Your Guess";
 
@@ -173,32 +174,35 @@ render() {
           <TextField labelName='2' labelContent='E-mail' />
         </div>
         <p>This is a paragraph.</p>
+  
   <div class='break'></div>
-        <div id='game'>
-          <button id='debuggame' onClick={(e)=>this.toggleDebug(e)} class={this.state.debug ? "dbgactive" : ""}></button>
-          <h3 id='gameheader'>Guessing Game</h3>
-          <label for='min'>Minimum Value</label>
-          <input name='min' type='text' class='txtfld' autocomplete='off' disabled={(this.state.disable)? "disabled" : ""} value={this.state.minimum} onChange={(e) => {this.setMin(e)}}></input><br />
-          <label for='max'>Maximum Value</label>
-          <input name='max' type='text' class='txtfld' autocomplete='off' disabled={(this.state.disable)? "disabled" : ""} value={this.state.maximum} onChange={(e) => {this.setMax(e)}}></input><br />
-          <label for='guess'>Guess</label>
-          <input name='guess' type='text' id='guessfld' class='txtfld' style={{width: this.state.guessLength}} autocomplete='off' disabled={(this.state.disable)? "disabled" : ""} value={this.state.guess} onChange={(e) => {this.checkGuess(e)}}></input>
-          <button class="btn" onClick={(e) => {this.resetGame(e)}}>Reset</button>
-          <div id='output'>{this.state.message}</div>
-          <div id='stats'><b>Wins</b>: {this.state.wins}</div>
-          {this.state.debug ? 
-          <div id='debuginfo'>
-            <b>Debug Mode</b>
-            <br />
-            <span class='att'>Min:</span> {this.state.minimum} <span class='att'>Max:</span> {this.state.maximum} <span class='att'>Rand:</span> {this.state.random} 
-            <br />
-            <span class='att'>Guess:</span> {this.state.guess}
-            <br />
-            <label for="forcernd" class='att'>Set Rand: </label>
-            <input name='forcernd' type='text' class='txtfld forcernd' autocomplete='off' style={{width: this.state.randLength}} value={this.state.random} onChange={(e) => {this.setRand(e)}}></input>
-            </div>
-            : ""}
-        </div>
+        <Draggable>
+          <div id='game'>
+            <button id='debuggame' onClick={(e)=>this.toggleDebug(e)} class={this.state.debug ? "dbgactive" : ""}></button>
+            <h3 id='gameheader'>Guessing Game</h3>
+            <label for='min'>Minimum Value</label>
+            <input name='min' type='text' class='txtfld' autocomplete='off' disabled={(this.state.disable)? "disabled" : ""} value={this.state.minimum} onChange={(e) => {this.setMin(e)}}></input><br />
+            <label for='max'>Maximum Value</label>
+            <input name='max' type='text' class='txtfld' autocomplete='off' disabled={(this.state.disable)? "disabled" : ""} value={this.state.maximum} onChange={(e) => {this.setMax(e)}}></input><br />
+            <label for='guess'>Guess</label>
+            <input name='guess' type='text' id='guessfld' class='txtfld' style={{width: this.state.guessLength}} autocomplete='off' disabled={(this.state.disable)? "disabled" : ""} value={this.state.guess} onChange={(e) => {this.checkGuess(e)}}></input>
+            <button class="btn" onClick={(e) => {this.resetGame(e)}}>Reset</button>
+            <div id='output'>{this.state.message}</div>
+            <div id='stats'><b>Wins</b>: {this.state.wins}</div>
+            {this.state.debug ? 
+            <div id='debuginfo'>
+              <b>Debug Mode</b>
+              <br />
+              <span class='att'>Min:</span> {this.state.minimum} <span class='att'>Max:</span> {this.state.maximum} <span class='att'>Rand:</span> {this.state.random} 
+              <br />
+              <span class='att'>Guess:</span> {this.state.guess}
+              <br />
+              <label for="forcernd" class='att'>Set Rand: </label>
+              <input name='forcernd' type='text' class='txtfld forcernd' autocomplete='off' style={{width: this.state.randLength}} value={this.state.random} onChange={(e) => {this.setRand(e)}}></input>
+              </div>
+              : ""}
+          </div>
+        </Draggable>
       </div>
     </div>
   );

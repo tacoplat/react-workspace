@@ -25,7 +25,7 @@ code {
 .container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .btn {
@@ -222,4 +222,36 @@ h3 {
 }
 #drag:active {
     cursor: grabbing;
+}
+.countdown {
+    background-image: linear-gradient(to bottom right, #edfff2, #daf7e1);
+    border-radius: 2em;
+    padding: 0.5em 1.5em 2em;
+    text-align: center;
+    height: 10%;
+    flex-shrink: 3;
+    flex-basis: content;
+}
+.eventName {
+    color: #434a45;
+    transition: color 0.25s ease-in-out;
+    font-weight: 600;
+}
+.eventName:hover {
+    color: #849187;
+}
+#test {
+    background-color: red;
+    width: 25px;
+    height: 25px;
+}
+
+#test-2 {
+    background-color: green;
+    width: 25px;
+    height: 25px;
+}
+
+.blue {
+    background-color: blue !important;
 }

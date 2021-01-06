@@ -4,6 +4,7 @@ import Greeting from './components/greeting';
 import Dice from './components/dice';
 import TextField from './components/textfield';
 import Draggable from 'react-draggable';
+import Countdown from './components/countdown'
 
 var defaultGuess = "Your Guess";
 
@@ -23,7 +24,8 @@ class App extends Component {
       disabled: "",
       debug: 0,
       randLength: String(randomNbr).length + "ch",
-      wins: 0
+      wins: 0,
+      changeColor: 0
     }
   }
 
@@ -159,6 +161,39 @@ toggleDebug(e) {
   }
 }
 
+changeColor(e) {
+  var obj = document.getElementById("test");
+  var rect = obj.getBoundingClientRect();
+
+  var obj2 = document.getElementById("test-2");
+  var rect2 = obj2.getBoundingClientRect();
+
+  this.setState({
+    x: rect.left,
+    y: rect.top,
+    x2: rect2.left,
+    y2: rect2.top
+  });
+
+  if((this.state.x > (this.state.x2 - 2) && this.state.x < (this.state.x2 + 2)) && this.state.y > (this.state.y2 - 2) && this.state.y < (this.state.y2 + 2)) {
+    obj.style.top = rect2.top;
+    obj.style.left = rect2.left;
+    obj.style.bottom = rect2.bottom;
+    obj.style.right = rect2.right;
+    if(this.state.changeColor == 0) {
+      this.setState({
+        changeColor: 1
+      });
+    } else {
+      this.setState({
+        changeColor: 0
+      });
+    }
+  }
+
+console.log(rect.left, rect.top);
+}
+
 render() {
   return (
     <div className="App">
@@ -176,7 +211,7 @@ render() {
         <p>This is a paragraph.</p>
   
   <div class='break'></div>
-        <Draggable handle="#drag">
+        <Draggable handle='#drag' axis="x">
           <div id='game'>
             <button id='debuggame' onClick={(e)=>this.toggleDebug(e)} class={this.state.debug ? "dbgactive" : ""}></button>
             <h3 id='gameheader'>Guessing Game</h3>
@@ -206,6 +241,14 @@ render() {
             </div>
           </div>
         </Draggable>
+        {/*<Countdown eventName='Last week of March' eventDate='03/29/2021'></Countdown>
+        <Countdown eventName='First week of May' eventDate='05/03/2021'></Countdown>
+        <Countdown eventName='End of school year' eventDate='06/28/2021'></Countdown>*/}
+        <Draggable onStop={(e) => {this.changeColor(e)}}>
+          <div id="test">
+          </div>
+        </Draggable>
+        <div id="test-2" className={this.state.changeColor ? "blue" : ""}></div>
       </div>
     </div>
   );

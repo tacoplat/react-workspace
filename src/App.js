@@ -4,7 +4,7 @@ import Greeting from './components/greeting';
 import Dice from './components/dice';
 import TextField from './components/textfield';
 import Draggable from 'react-draggable';
-import Countdown from './components/countdown'
+//import Countdown from './components/countdown'
 
 var defaultGuess = "Your Guess";
 
@@ -176,10 +176,7 @@ changeColor(e) {
   });
 
   if((this.state.x > (this.state.x2 - 2) && this.state.x < (this.state.x2 + 2)) && this.state.y > (this.state.y2 - 2) && this.state.y < (this.state.y2 + 2)) {
-    obj.style.top = rect2.top;
-    obj.style.left = rect2.left;
-    obj.style.bottom = rect2.bottom;
-    obj.style.right = rect2.right;
+
     if(this.state.changeColor == 0) {
       this.setState({
         changeColor: 1

@@ -176,7 +176,6 @@ changeColor(e) {
   });
 
   if((this.state.x > (this.state.x2 - 2) && this.state.x < (this.state.x2 + 2)) && this.state.y > (this.state.y2 - 2) && this.state.y < (this.state.y2 + 2)) {
-
     if(this.state.changeColor == 0) {
       this.setState({
         changeColor: 1
@@ -189,6 +188,10 @@ changeColor(e) {
   }
 
 console.log(rect.left, rect.top);
+}
+
+rotateEl(e) {
+  
 }
 
 render() {
@@ -246,6 +249,8 @@ render() {
           </div>
         </Draggable>
         <div id="test-2" className={this.state.changeColor ? "blue" : ""}></div>
+        <div class='break'></div>
+        <div id="test-3"></div>
       </div>
     </div>
   );
